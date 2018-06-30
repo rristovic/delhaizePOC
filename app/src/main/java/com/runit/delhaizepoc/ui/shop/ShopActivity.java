@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.runit.delhaizepoc.R;
 import com.runit.delhaizepoc.data.dto.ShoppingListResult;
+import com.runit.delhaizepoc.data.entity.Article;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -57,10 +58,15 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onNext(ShoppingListResult shoppingListResult) {
                         if (shoppingListResult.articles.size() == 0) {
-                            ((View)tvCartLabel.getParent()).setVisibility(View.GONE);
+                            ((View) tvCartLabel.getParent()).setVisibility(View.GONE);
                         } else {
-                            ((View)tvCartLabel.getParent()).setVisibility(View.VISIBLE);
-                            tvCartLabel.setText(Integer.toString(shoppingListResult.articles.size()));
+                            ((View) tvCartLabel.getParent()).setVisibility(View.VISIBLE);
+                            int total = 0;
+                            for (Article a :
+                                    shoppingListResult.articles) {
+                                total += a.count;
+                            }
+                            tvCartLabel.setText(Integer.toString(total));
                         }
                     }
 

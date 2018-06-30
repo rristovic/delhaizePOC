@@ -18,11 +18,19 @@ import com.runit.delhaizepoc.ui.ItemClickListener;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolder> {
 
-    private static final Article[] data = new Article[3];
+    private final Article[] data = new Article[3];
     private static int[] img = new int[3];
 
     static {
         img = new int[]{R.drawable.home, R.drawable.home, R.drawable.home,};
+    }
+
+    private final ItemClickListener<String> listener;
+    private final ShoppingListRepositoryImpl repo;
+
+    public ItemsAdapter(ItemClickListener<String> listener) {
+        this.listener = listener;
+        this.repo = new ShoppingListRepositoryImpl();
         for (int i = 0; i < 3; i++) {
             Article a = new Article();
             a._id = i;
@@ -32,14 +40,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolde
             a.weight = "200g (249 rsd / 1kg";
             data[i] = a;
         }
-    }
-
-    private final ItemClickListener<String> listener;
-    private final ShoppingListRepositoryImpl repo;
-
-    public ItemsAdapter(ItemClickListener<String> listener) {
-        this.listener = listener;
-        this.repo = new ShoppingListRepositoryImpl();
     }
 
     @Override

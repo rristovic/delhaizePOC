@@ -43,12 +43,12 @@
                 app:layout_constraintTop_toBottomOf="@id/slider" />
 
             <TextView
-                style="@style/MainMenuBtn"
-                android:drawableTop="@drawable/shopping_cart"
                 android:id="@+id/btn_shop"
+                style="@style/MainMenuBtn"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
+                android:drawableTop="@drawable/shopping_cart"
                 android:text="Shop"
                 app:layout_constraintBottom_toTopOf="@+id/btn_lists"
                 app:layout_constraintEnd_toStartOf="@+id/btn_pickup"
@@ -67,12 +67,12 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_all_offers" />
 
             <TextView
-                style="@style/MainMenuBtn"
-                android:drawableTop="@drawable/shopping_bag"
                 android:id="@+id/btn_pickup"
+                style="@style/MainMenuBtn"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
+                android:drawableTop="@drawable/shopping_bag"
                 android:text="PickUp"
                 app:layout_constraintBottom_toTopOf="@+id/btn_profile"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -93,12 +93,14 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_all_offers" />
 
             <TextView
-                style="@style/MainMenuBtn"
+                android:paddingTop="48dp"
                 android:id="@+id/btn_lists"
+                style="@style/MainMenuBtn"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
-                android:text="Lists"
+                android:drawableTop="@drawable/list"
+                android:text="History"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_profile"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -106,11 +108,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_shop" />
 
             <TextView
+                android:paddingTop="48dp"
                 android:id="@+id/btn_profile"
+                style="@style/MainMenuBtn"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
-                style="@style/MainMenuBtn"
+                android:drawableTop="@drawable/profile"
                 android:text="Profile"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
