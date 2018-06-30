@@ -13,6 +13,31 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/main_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <ImageButton
+                    android:id="@+id/btn_current_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="16dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@android:drawable/ic_menu_add" />
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,15 +46,8 @@
             <FrameLayout
                 android:id="@+id/slider"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:background="@android:color/darker_gray">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/home" />
-            </FrameLayout>
+                android:layout_height="200dp"
+                android:background="@android:color/darker_gray" />
 
             <TextView
                 android:id="@+id/tv_all_offers"
@@ -43,12 +61,11 @@
                 app:layout_constraintTop_toBottomOf="@id/slider" />
 
             <TextView
-                style="@style/MainMenuBtn"
-                android:drawableTop="@drawable/shopping_cart"
                 android:id="@+id/btn_shop"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
+                android:gravity="center"
                 android:text="Shop"
                 app:layout_constraintBottom_toTopOf="@+id/btn_lists"
                 app:layout_constraintEnd_toStartOf="@+id/btn_pickup"
@@ -56,23 +73,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_all_offers" />
 
-            <FrameLayout
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/red_divider"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btn_pickup"
-                app:layout_constraintTop_toBottomOf="@id/tv_all_offers" />
-
             <TextView
-                style="@style/MainMenuBtn"
-                android:drawableTop="@drawable/shopping_bag"
                 android:id="@+id/btn_pickup"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
+                android:gravity="center"
                 android:text="PickUp"
                 app:layout_constraintBottom_toTopOf="@+id/btn_profile"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,24 +86,12 @@
                 app:layout_constraintStart_toEndOf="@+id/btn_shop"
                 app:layout_constraintTop_toBottomOf="@+id/tv_all_offers" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/red_divider"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btn_pickup"
-                app:layout_constraintTop_toBottomOf="@id/tv_all_offers" />
-
             <TextView
-                style="@style/MainMenuBtn"
                 android:id="@+id/btn_lists"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
+                android:gravity="center"
                 android:text="Lists"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_profile"
@@ -110,7 +104,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
-                style="@style/MainMenuBtn"
+                android:gravity="center"
                 android:text="Profile"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
