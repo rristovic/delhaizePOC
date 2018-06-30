@@ -2,6 +2,7 @@ package com.runit.delhaizepoc.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private CompositeDisposable compositeDisposable;
     private DrawerLayout drawer;
 
-    private View btnCurrentList;
+    private static final String PICKUP_FRAG = "pick_up_fragment";
+    private View btnCurrentList, btnShop, btnPickUp, btnLists, btnProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         // init ui
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
         btnCurrentList = findViewById(R.id.btn_current_list);
         btnCurrentList.setOnClickListener(this);
+        btnShop = findViewById(R.id.btn_shop);
+        btnShop.setOnClickListener(this);
+        btnPickUp = findViewById(R.id.btn_pickup);
+        btnPickUp.setOnClickListener(this);
+        btnLists = findViewById(R.id.btn_lists);
+        btnLists.setOnClickListener(this);
+        btnProfile = findViewById(R.id.btn_profile);
+        btnProfile.setOnClickListener(this);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         closeDrawer();
     }
@@ -45,6 +56,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             }
+            case R.id.btn_shop: {
+                break;
+            }
+            case R.id.btn_pickup: {
+                showFragment(new PickUpFragment());
+                break;
+            }
+            case R.id.btn_lists: {
+                break;
+            }
+            case R.id.btn_profile: {
+                break;
+            }
         }
     }
 
@@ -52,6 +76,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onBackPressed() {
         if (isDrawerOpen()) {
             closeDrawer();
+        } else if (consumeBackButton()) {
         } else {
             super.onBackPressed();
         }
@@ -69,11 +94,30 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         return drawer.isDrawerOpen(GravityCompat.END);
     }
 
+    private void showFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, fragment, PICKUP_FRAG)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private boolean consumeBackButton() {
+        PickUpFragment pickUpFragment = (PickUpFragment) getSupportFragmentManager().findFragmentByTag(PICKUP_FRAG);
+        if (pickUpFragment != null) {
+            return pickUpFragment.onBackPressed();
+        } else
+            return false;
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (!compositeDisposable.isDisposed())
             compositeDisposable.dispose();
+    }
+
+    public void onFragmentResumed() {
+
     }
 
     public CompositeDisposable getCompositeDisposable() {
