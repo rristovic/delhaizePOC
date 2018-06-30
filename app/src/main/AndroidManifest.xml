@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:name=".ui.ShopActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

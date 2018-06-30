@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_label"
+    style="@style/MainMenuBtn"
+    android:layout_margin="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/dark_gray_bg"
+    android:drawableTop="@drawable/shopping_cart"
+    android:text="Item "
+    android:textColor="@color/text_white_primary" />

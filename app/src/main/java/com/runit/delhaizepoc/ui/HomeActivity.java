@@ -1,6 +1,7 @@
 package com.runit.delhaizepoc.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import com.runit.delhaizepoc.R;
 import io.reactivex.disposables.CompositeDisposable;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
-    private MainScreenViewModel viewModel;
+    private ShopScreenViewModel viewModel;
     private CompositeDisposable compositeDisposable;
 
     private static final String PICKUP_FRAG = "pick_up_fragment";
@@ -28,7 +29,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_home);
         compositeDisposable = new CompositeDisposable();
-        viewModel = ViewModelProviders.of(this).get(MainScreenViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(ShopScreenViewModel.class);
 
         btnShop = findViewById(R.id.btn_shop);
         btnShop.setOnClickListener(this);
@@ -44,6 +45,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_shop: {
+                Intent i = new Intent(HomeActivity.this, ShopActivity.class);
+                startActivity(i);
                 break;
             }
             case R.id.btn_pickup: {

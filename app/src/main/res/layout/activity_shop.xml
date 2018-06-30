@@ -26,100 +26,47 @@
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
-                <ImageButton
+                <ImageView
+                    android:padding="12dp"
                     android:id="@+id/btn_current_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="match_parent"
                     android:layout_gravity="end"
-                    android:layout_marginRight="16dp"
                     android:background="?attr/selectableItemBackground"
-                    android:src="@android:drawable/ic_menu_add" />
+                    android:src="@drawable/ic_cart" />
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/search_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/main_appbar">
+            android:layout_height="?attr/actionBarSize"
+            android:layout_below="@id/main_appbar"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
 
-            <FrameLayout
-                android:id="@+id/slider"
+            <ImageView
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:src="@drawable/ic_search" />
+
+            <android.support.v7.widget.AppCompatEditText
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@android:color/darker_gray" />
-
-            <TextView
-                android:id="@+id/tv_all_offers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="See all offers"
-                android:textColor="@color/text_black_secondary"
-                app:layout_constraintTop_toBottomOf="@id/slider" />
-
-            <TextView
-                android:id="@+id/btn_shop"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:text="Shop"
-                app:layout_constraintBottom_toTopOf="@+id/btn_lists"
-                app:layout_constraintEnd_toStartOf="@+id/btn_pickup"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_all_offers" />
-
-            <TextView
-                android:id="@+id/btn_pickup"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:text="PickUp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_profile"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/btn_shop"
-                app:layout_constraintTop_toBottomOf="@+id/tv_all_offers" />
-
-            <TextView
-                android:id="@+id/btn_lists"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:text="Lists"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_profile"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_shop" />
-
-            <TextView
-                android:id="@+id/btn_profile"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:text="Profile"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/btn_lists"
-                app:layout_constraintTop_toBottomOf="@+id/btn_pickup" />
-
-        </android.support.constraint.ConstraintLayout>
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="@color/text_white_secondary"
+                android:enabled="false"
+                android:hint="Search articles.."
+                android:textColorHint="@color/text_white_secondary" />
+        </LinearLayout>
 
         <FrameLayout
             android:id="@+id/main_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/main_appbar" />
-
+            android:layout_below="@id/search_bar" />
 
     </RelativeLayout>
 

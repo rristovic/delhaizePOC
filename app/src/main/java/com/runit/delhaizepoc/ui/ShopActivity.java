@@ -1,5 +1,6 @@
 package com.runit.delhaizepoc.ui;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -16,20 +17,27 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
     private DrawerLayout drawer;
     private CompositeDisposable compositeDisposable;
     private View btnCurrentList;
+    private ShopScreenViewModel viewModel;
+
+    private final static String CAT_FRAG = "category_frag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
         compositeDisposable = new CompositeDisposable();
-//        viewModel = ViewModelProviders.of(this).get(MainScreenViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(ShopScreenViewModel.class);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnCurrentList = findViewById(R.id.btn_current_list);
         btnCurrentList.setOnClickListener(this);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         closeDrawer();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, new TopCategoryFragment(), CAT_FRAG)
+                .commit();
     }
 
     @Override
@@ -55,6 +63,12 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     private void openDrawer() {
         drawer.openDrawer(GravityCompat.END);
     }
@@ -67,7 +81,7 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
         return drawer.isDrawerOpen(GravityCompat.END);
     }
 
-    private void showFragment(Fragment fragment, String fragTag) {
+    public void showFragment(Fragment fragment, String fragTag) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_container, fragment, fragTag)
                 .addToBackStack(null)

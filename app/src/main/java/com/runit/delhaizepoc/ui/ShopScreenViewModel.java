@@ -14,10 +14,10 @@ import io.reactivex.Observable;
  * Created by Sarma on 6/30/2018.
  */
 
-public class MainScreenViewModel extends AndroidViewModel {
+public class ShopScreenViewModel extends AndroidViewModel {
     ShoppingListRepository repository;
 
-    public MainScreenViewModel(@NonNull Application application) {
+    public ShopScreenViewModel(@NonNull Application application) {
         super(application);
         repository = new ShoppingListRepositoryImpl();
     }
