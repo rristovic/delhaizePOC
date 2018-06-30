@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.runit.delhaizepoc.R;
 import com.runit.delhaizepoc.data.dto.ShoppingListResult;
@@ -20,7 +21,8 @@ import io.reactivex.disposables.Disposable;
 public class ShopActivity extends AppCompatActivity implements View.OnClickListener {
     private DrawerLayout drawer;
     private CompositeDisposable compositeDisposable;
-    private View btnCurrentList;
+    private View btnCart;
+    private TextView tvCartLabel;
     private ShopScreenViewModel viewModel;
 
     private final static String CAT_FRAG = "category_frag";
@@ -34,8 +36,9 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        btnCurrentList = findViewById(R.id.btn_current_list);
-        btnCurrentList.setOnClickListener(this);
+        tvCartLabel = findViewById(R.id.tv_cart_label);
+        btnCart = findViewById(R.id.btn_current_list);
+        btnCart.setOnClickListener(this);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         closeDrawer();
 
@@ -53,7 +56,12 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
 
                     @Override
                     public void onNext(ShoppingListResult shoppingListResult) {
-
+                        if (shoppingListResult.articles.size() == 0) {
+                            tvCartLabel.setVisibility(View.GONE);
+                        } else {
+                            tvCartLabel.setVisibility(View.GONE);
+                            tvCartLabel.setText(shoppingListResult.articles.size());
+                        }
                     }
 
                     @Override
