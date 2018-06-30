@@ -82,12 +82,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CatViewHolder>
             int pos = getAdapterPosition();
             if (view.getId() == R.id.iv_plus) {
                 a.count++;
-                notifyItemChanged(pos);
+                notifyDataSetChanged();
                 repo.addToCurrentShoppingList(a);
             } else {
                 if (a.count > 0) {
                     a.count--;
-                    notifyItemChanged(pos);
+                    notifyDataSetChanged();
                     repo.removeFromCurrentShoppingList(a);
                 }
             }

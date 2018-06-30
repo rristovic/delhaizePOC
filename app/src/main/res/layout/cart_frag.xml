@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     android:background="@color/bg_white">
 
+    <TextView
+        android:id="@+id/no_items"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="No items in Cart"
+        android:textSize="28dp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
@@ -17,5 +26,39 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/total_label"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Total: "
+            android:textColor="@color/text_black_primary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_cart_total"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/total_label"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="0 rsd"
+            android:textColor="@color/text_black_primary"
+            android:textSize="20dp" />
+
+        <Button
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorAccent"
+            android:text="BUY"
+            android:textColor="@color/text_white_primary" />
+
     </RelativeLayout>
 </RelativeLayout>
