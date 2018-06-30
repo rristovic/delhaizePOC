@@ -1,9 +1,9 @@
-package com.runit.delhaizepoc.ui;
+package com.runit.delhaizepoc.ui.shop;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,21 +15,22 @@ import com.runit.delhaizepoc.R;
  * Created by Sarma on 6/30/2018.
  */
 
-public class ItemsFragment extends Fragment {
+public class TopCategoryFragment extends Fragment {
 
     RecyclerView list;
 
-    public ItemsFragment() {}
+    public TopCategoryFragment() {}
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.list_frag, container, false);
         list = root.findViewById(R.id.list);
-        list.setAdapter(new SubCatAdapter(item -> {
-
+        list.setAdapter(new TopCatAdapter(item -> {
+            ((ShopActivity)getActivity()).showFragment(new SubCategoryFragment(), "SUBFRAG");
         }));
-        list.setLayoutManager(new LinearLayoutManager(getActivity()));
+        list.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         return root;
     }
 

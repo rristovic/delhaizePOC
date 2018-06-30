@@ -1,4 +1,4 @@
-package com.runit.delhaizepoc.ui;
+package com.runit.delhaizepoc.ui.shop;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

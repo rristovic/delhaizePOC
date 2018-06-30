@@ -1,4 +1,4 @@
-package com.runit.delhaizepoc.ui;
+package com.runit.delhaizepoc.ui.shop;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -10,8 +10,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.runit.delhaizepoc.R;
+import com.runit.delhaizepoc.data.dto.ShoppingListResult;
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 public class ShopActivity extends AppCompatActivity implements View.OnClickListener {
     private DrawerLayout drawer;
@@ -38,6 +42,30 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_container, new TopCategoryFragment(), CAT_FRAG)
                 .commit();
+
+        viewModel.getCurrentShoppingList()
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ShoppingListResult>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        getCompositeDisposable().add(d);
+                    }
+
+                    @Override
+                    public void onNext(ShoppingListResult shoppingListResult) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     @Override

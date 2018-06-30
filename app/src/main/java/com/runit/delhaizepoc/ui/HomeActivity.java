@@ -10,6 +10,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.runit.delhaizepoc.R;
+import com.runit.delhaizepoc.ui.shop.ShopActivity;
+import com.runit.delhaizepoc.ui.shop.ShopScreenViewModel;
 
 import io.reactivex.disposables.CompositeDisposable;
 

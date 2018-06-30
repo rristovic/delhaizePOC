@@ -13,6 +13,8 @@ public class Article {
     @PrimaryKey
     @ColumnInfo(name = "article_id")
     public int _id;
-    public String name;
-    public int weight;
+    public String name, company, weight;
+    public long listId;
+    public float price;
+    public int count = 0;
 }

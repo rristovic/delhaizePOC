@@ -1,4 +1,4 @@
-package com.runit.delhaizepoc.ui;
+package com.runit.delhaizepoc.ui.shop;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,18 +7,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.runit.delhaizepoc.R;
+import com.runit.delhaizepoc.ui.ItemClickListener;
 
 /**
  * Created by Sarma on 6/30/2018.
  */
 
-public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolder> {
+public class TopCatAdapter extends RecyclerView.Adapter<TopCatAdapter.CatViewHolder> {
 
     private static final String[] data = new String[]{"Milk", "Egs"};
     private static final int[] img = new int[]{R.drawable.ic_cart, R.drawable.ic_cart};
     private final ItemClickListener<String> listener;
 
-    public ItemsAdapter(ItemClickListener<String> listener) {
+    public TopCatAdapter(ItemClickListener<String> listener) {
         this.listener = listener;
     }
 

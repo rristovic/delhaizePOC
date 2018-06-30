@@ -1,4 +1,4 @@
-package com.runit.delhaizepoc.ui;
+package com.runit.delhaizepoc.ui.shop;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,7 +19,8 @@ public class SubCategoryFragment extends Fragment {
 
     RecyclerView list;
 
-    public SubCategoryFragment() {}
+    public SubCategoryFragment() {
+    }
 
     @Nullable
     @Override
@@ -27,7 +28,7 @@ public class SubCategoryFragment extends Fragment {
         View root = inflater.inflate(R.layout.list_frag, container, false);
         list = root.findViewById(R.id.list);
         list.setAdapter(new SubCatAdapter(item -> {
-
+            ((ShopActivity) getActivity()).showFragment(new ItemsFragment(), "items");
         }));
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         return root;

@@ -16,6 +16,6 @@ public class ShoppingListResult {
     @Embedded
     public ShoppingList shoppingList;
 
-    @Relation(parentColumn = "list_id", entityColumn = "article_id", entity = Article.class)
+    @Relation(parentColumn = "list_id", entityColumn = "listId", entity = Article.class)
     public List<Article> articles;
 }
