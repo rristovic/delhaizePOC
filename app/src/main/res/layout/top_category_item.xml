@@ -4,8 +4,10 @@
     style="@style/MainMenuBtn"
     android:layout_margin="4dp"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="170dp"
+    android:paddingRight="8dp"
+    android:paddingLeft="8dp"
     android:background="@color/dark_gray_bg"
-    android:drawableTop="@drawable/shopping_cart"
+    android:drawableTop="@drawable/coffee_tea_drinks"
     android:text="Item "
     android:textColor="@color/text_white_primary" />

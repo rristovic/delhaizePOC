@@ -15,8 +15,33 @@ import com.runit.delhaizepoc.ui.ItemClickListener;
 
 public class TopCatAdapter extends RecyclerView.Adapter<TopCatAdapter.CatViewHolder> {
 
-    private static final String[] data = new String[]{"Milk", "Egs"};
-    private static final int[] img = new int[]{R.drawable.ic_cart, R.drawable.ic_cart};
+    private static final String[] data = new String[]{"Promo", "Baby Food",
+            "Bakery",
+            "Chocolate & Sweets",
+            "Coffee, Tea & Drinks",
+            "Frozen Food",
+            "Fruit & Vegetables",
+            "Healthy Food",
+            "Kitchen",
+            "Meat & Fish",
+            "Milk & Egg",
+            "Pet Food", "Baby Food",
+            "Bakery",
+            "Chocolate & Sweets",
+            "Coffee, Tea & Drinks",
+            "Frozen Food",
+            "Fruit & Vegetables",
+            "Healthy Food",
+            "Kitchen",
+            "Meat & Fish",
+            "Milk & Egg",
+            "Pet Food",
+    };
+    private static final int[] img = new int[]{R.drawable.promo, R.drawable.baby_food, R.drawable.bakery, R.drawable.chocolate,
+            R.drawable.coffee_tea_drinks, R.drawable.frozen, R.drawable.fruit_vegetables, R.drawable.healthy_food,
+            R.drawable.kitchen, R.drawable.meat_fish, R.drawable.milk_egg, R.drawable.pet_food, R.drawable.baby_food, R.drawable.bakery, R.drawable.chocolate,
+            R.drawable.coffee_tea_drinks, R.drawable.frozen, R.drawable.fruit_vegetables, R.drawable.healthy_food,
+            R.drawable.kitchen, R.drawable.meat_fish, R.drawable.milk_egg, R.drawable.pet_food};
     private final ItemClickListener<String> listener;
 
     public TopCatAdapter(ItemClickListener<String> listener) {
@@ -51,7 +76,7 @@ public class TopCatAdapter extends RecyclerView.Adapter<TopCatAdapter.CatViewHol
 
         @Override
         public void onClick(View view) {
-            if(listener != null) {
+            if (listener != null) {
                 listener.onItemClicked(data[getAdapterPosition()]);
             }
         }
