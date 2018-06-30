@@ -12,4 +12,5 @@ import com.runit.delhaizepoc.data.entity.ShoppingList;
 
 @Database(version = 1, exportSchema = false, entities = {ShoppingList.class, Article.class})
 public abstract class MaxiDB extends RoomDatabase {
+    public abstract ShoppingListDao shoppingListDao();
 }

@@ -9,7 +9,7 @@ import io.reactivex.Observable;
  * Created by Sarma on 6/30/2018.
  */
 
-public interface ShopingListRepository {
+public interface ShoppingListRepository {
     Observable<ShoppingListResult> getCurrentShoppingList();
 
     void addToCurrentShoppingList(Article articles);
