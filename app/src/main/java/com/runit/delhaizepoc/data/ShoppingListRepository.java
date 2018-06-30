@@ -14,4 +14,5 @@ public interface ShoppingListRepository {
 
     void addToCurrentShoppingList(Article articles);
     void removeFromCurrentShoppingList(Article articles);
+    void resetCurrentShoppingList();
 }

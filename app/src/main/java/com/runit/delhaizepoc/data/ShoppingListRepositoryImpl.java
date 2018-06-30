@@ -27,6 +27,7 @@ public class ShoppingListRepositoryImpl implements ShoppingListRepository {
             current.id = CUR_SHOPING_LIST_ID;
             this.db.shoppingListDao().insert(current);
         }
+        resetCurrentShoppingList();
     }
 
     @Override
@@ -54,5 +55,12 @@ public class ShoppingListRepositoryImpl implements ShoppingListRepository {
                 db.shoppingListDao().insert(article);
         }).subscribeOn(Schedulers.io()).onErrorComplete().subscribe();
 
+    }
+
+    @Override
+    public void resetCurrentShoppingList() {
+        Completable.fromAction(() -> {
+            db.shoppingListDao().deleteShoppingList(CUR_SHOPING_LIST_ID);
+        }).subscribeOn(Schedulers.io()).onErrorComplete().subscribe();
     }
 }

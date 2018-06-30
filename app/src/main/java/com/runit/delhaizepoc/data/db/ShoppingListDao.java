@@ -32,4 +32,7 @@ public interface ShoppingListDao {
 
     @Delete
     void delete(Article article);
+
+    @Query("DELETE FROM article WHERE article.listId = :listId")
+    void deleteShoppingList(long listId);
 }

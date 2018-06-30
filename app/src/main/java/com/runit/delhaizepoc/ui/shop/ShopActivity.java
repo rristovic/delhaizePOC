@@ -37,7 +37,7 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tvCartLabel = findViewById(R.id.tv_cart_label);
-        btnCart = findViewById(R.id.btn_current_list);
+        btnCart = findViewById(R.id.btn_cart);
         btnCart.setOnClickListener(this);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         closeDrawer();
@@ -47,7 +47,7 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
                 .commit();
 
         viewModel.getCurrentShoppingList()
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ShoppingListResult>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -57,10 +57,10 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onNext(ShoppingListResult shoppingListResult) {
                         if (shoppingListResult.articles.size() == 0) {
-                            tvCartLabel.setVisibility(View.GONE);
+                            ((View)tvCartLabel.getParent()).setVisibility(View.GONE);
                         } else {
-                            tvCartLabel.setVisibility(View.GONE);
-                            tvCartLabel.setText(shoppingListResult.articles.size());
+                            ((View)tvCartLabel.getParent()).setVisibility(View.VISIBLE);
+                            tvCartLabel.setText(Integer.toString(shoppingListResult.articles.size()));
                         }
                     }
 
@@ -79,7 +79,7 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_current_list: {
+            case R.id.btn_cart: {
                 if (isDrawerOpen()) {
                     closeDrawer();
                 } else {
