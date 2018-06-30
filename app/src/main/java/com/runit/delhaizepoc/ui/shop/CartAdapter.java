@@ -12,30 +12,22 @@ import com.runit.delhaizepoc.data.ShoppingListRepositoryImpl;
 import com.runit.delhaizepoc.data.entity.Article;
 import com.runit.delhaizepoc.ui.ItemClickListener;
 
+import java.util.List;
+
 /**
  * Created by Sarma on 6/30/2018.
  */
 
-public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolder> {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CatViewHolder> {
 
-    private final Article[] data = new Article[10];
 
     private final ItemClickListener<String> listener;
     private final ShoppingListRepositoryImpl repo;
+    private List<Article> data;
 
-    public ItemsAdapter(ItemClickListener<String> listener) {
+    public CartAdapter(ItemClickListener<String> listener) {
         this.listener = listener;
         this.repo = new ShoppingListRepositoryImpl();
-        for (int i = 0; i < 10; i++) {
-            Article a = new Article();
-            a._id = i;
-            a.company = "Cedevita";
-            a.name = "Lorem Ipsum";
-            a.price = 250;
-            a.weight = "200g (249 rsd / 1kg";
-            a.img = R.drawable.home;
-            data[i] = a;
-        }
     }
 
     @Override
@@ -45,17 +37,21 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolde
 
     @Override
     public void onBindViewHolder(CatViewHolder holder, int position) {
-        Article a = data[position];
+        Article a = data.get(position);
         holder.label.setText(a.name);
         holder.company.setText(a.company);
         holder.gram.setText(a.weight + "g");
         holder.cost.setText(a.count + " x " + a.price);
-        holder.icon.setImageResource(a.img);
+    }
+
+    public void setData(List<Article> data) {
+        this.data = data;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return data == null ? 0 : data.size();
     }
 
     public class CatViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -82,16 +78,17 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolde
 
         @Override
         public void onClick(View view) {
+            Article a = data.get(getAdapterPosition());
             int pos = getAdapterPosition();
             if (view.getId() == R.id.iv_plus) {
-                data[pos].count++;
+                a.count++;
                 notifyItemChanged(pos);
-                repo.addToCurrentShoppingList(data[pos]);
+                repo.addToCurrentShoppingList(a);
             } else {
-                if (data[pos].count > 0) {
-                    data[pos].count--;
+                if (a.count > 0) {
+                    a.count--;
                     notifyItemChanged(pos);
-                    repo.removeFromCurrentShoppingList(data[pos]);
+                    repo.removeFromCurrentShoppingList(a);
                 }
             }
         }

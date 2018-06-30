@@ -10,7 +10,7 @@ import com.runit.delhaizepoc.data.entity.ShoppingList;
  * Created by Sarma on 6/30/2018.
  */
 
-@Database(version = 2, exportSchema = false, entities = {ShoppingList.class, Article.class})
+@Database(version = 1, exportSchema = false, entities = {ShoppingList.class, Article.class})
 public abstract class MaxiDB extends RoomDatabase {
     public abstract ShoppingListDao shoppingListDao();
 }

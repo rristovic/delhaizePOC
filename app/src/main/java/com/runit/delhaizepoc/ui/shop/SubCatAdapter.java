@@ -15,8 +15,7 @@ import com.runit.delhaizepoc.ui.ItemClickListener;
 
 public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.CatViewHolder> {
 
-    private static final String[] data = new String[]{"Milk", "Egs"};
-    private static final int[] img = new int[]{R.drawable.ic_cart, R.drawable.ic_cart};
+    private static final String[] data = new String[]{"Milk", "Egs","Milk", "Egs","Milk", "Egs","Milk", "Egs","Milk", "Egs"};
     private final ItemClickListener<String> listener;
 
     public SubCatAdapter(ItemClickListener<String> listener) {

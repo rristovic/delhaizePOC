@@ -47,6 +47,10 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
                 .replace(R.id.main_container, new TopCategoryFragment(), CAT_FRAG)
                 .commit();
 
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.current_shopping_list_container, new CartFragment())
+                .commit();
+
         viewModel.getCurrentShoppingList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ShoppingListResult>() {

@@ -17,4 +17,5 @@ public class Article {
     public long listId;
     public float price;
     public int count = 0;
+    public int img;
 }
