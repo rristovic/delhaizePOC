@@ -8,11 +8,10 @@ import android.arch.persistence.room.PrimaryKey;
  * Created by Sarma on 6/30/2018.
  */
 
-@Entity(tableName = "article")
-public class Article {
+@Entity(tableName = "shopping_list")
+public class ShoppingList {
     @PrimaryKey
-    @ColumnInfo(name = "article_id")
-    public int _id;
-    public String name;
-    public int weight;
+    @ColumnInfo(name = "list_id")
+    public long id;
+    public String title;
 }
