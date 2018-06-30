@@ -1,5 +1,6 @@
 package com.runit.delhaizepoc.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -56,6 +57,8 @@ public class PickUpFragment extends Fragment {
             }
         });
         webView.loadUrl("http://192.168.43.199:18080/ords/f?p=100:2");
+        webView.setBackgroundColor(Color.TRANSPARENT);
+        webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 
         return root;
     }
