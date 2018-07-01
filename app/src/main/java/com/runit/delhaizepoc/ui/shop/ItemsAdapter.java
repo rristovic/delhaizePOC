@@ -39,7 +39,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolde
             a._id = i;
             a.company = "Delhaize - fruit market";
             a.name = names[i];
-            a.weight = "100g (" + price[i] + " rsd / 1kg";
+            a.weight = "100g (" + price[i] + " rsd / 1kg)";
             a.price = price[i] / 10;
             a.img = imgs[i];
             data[i] = a;

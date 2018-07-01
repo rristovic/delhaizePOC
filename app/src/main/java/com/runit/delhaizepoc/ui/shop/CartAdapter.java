@@ -32,7 +32,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CatViewHolder>
 
     @Override
     public CatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new CatViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.article_item, parent, false));
+        return new CatViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_item, parent, false));
     }
 
     @Override

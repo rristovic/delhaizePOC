@@ -74,28 +74,28 @@
 
             <ImageView
                 android:id="@+id/btn_share"
-                android:layout_marginRight="16dp"
-                android:tint="@color/text_white_primary"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:layout_marginRight="16dp"
                 android:background="@drawable/oval_black_bg"
-                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="12dp"
-                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/share" />
+                android:src="@drawable/share"
+                android:tint="@color/text_white_primary" />
         </LinearLayout>
 
     </RelativeLayout>
 
     <FrameLayout
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/shared"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:background="@color/divider" />
 
     <android.support.v7.widget.RecyclerView
@@ -136,7 +136,9 @@
             android:textColor="@color/text_black_primary"
             android:textSize="20dp" />
 
+
         <Button
+            android:id="@+id/buy"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
@@ -145,6 +147,12 @@
             android:paddingRight="32dp"
             android:text="BUY"
             android:textColor="@color/text_white_primary" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignTop="@id/buy"
+            android:background="@color/colorAccent"></FrameLayout>
 
     </RelativeLayout>
 </RelativeLayout>

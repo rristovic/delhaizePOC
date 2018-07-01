@@ -31,11 +31,11 @@
             android:scaleType="centerInside"
             android:src="@drawable/home" />
 
-        <TextView
+        <TextView            android:layout_marginLeft="4dp"
+
             android:id="@+id/tv_company"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:padding="8dp"
             android:text="Cedevita"
             android:textColor="@color/text_black_secondary"
@@ -45,9 +45,9 @@
 
         <TextView
             android:id="@+id/tv_label"
-            android:layout_width="0dp"
+            android:layout_width="0dp"            android:layout_marginLeft="4dp"
+
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:paddingBottom="8dp"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
@@ -62,7 +62,7 @@
             android:id="@+id/tv_gram"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="4dp"
             android:paddingLeft="16dp"
             android:text="200g (945rsd/1kg)"
             android:textColor="@color/text_black_secondary"
