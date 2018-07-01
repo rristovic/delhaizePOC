@@ -36,6 +36,6 @@ public class ItemsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle("Shop");
+        getActivity().setTitle("Fresh Fruit");
     }
 }

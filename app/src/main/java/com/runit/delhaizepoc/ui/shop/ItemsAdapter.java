@@ -18,7 +18,15 @@ import com.runit.delhaizepoc.ui.ItemClickListener;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolder> {
 
-    private final Article[] data = new Article[10];
+    private final Article[] data = new Article[9];
+    private final String[] names = new String[]{
+            "Apple", "Apricot", "Banana", "Grapes", "Kiwi", "Lemon", "Orange", "Pear", "Pineapple"
+    };
+    private final int[] imgs = new int[]{R.drawable.apple, R.drawable.apricot, R.drawable.banana, R.drawable.grapes,
+            R.drawable.kiwi, R.drawable.lemon, R.drawable.orange, R.drawable.pear, R.drawable.pineapple};
+
+    private float[] price = new float[]{139.99f, 199.99f, 129.99f, 179.99f, 299.99f, 299.99f, 129.99f, 229.99f, 139.99f};
+
 
     private final ItemClickListener<String> listener;
     private final ShoppingListRepositoryImpl repo;
@@ -26,14 +34,14 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolde
     public ItemsAdapter(ItemClickListener<String> listener) {
         this.listener = listener;
         this.repo = new ShoppingListRepositoryImpl();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             Article a = new Article();
             a._id = i;
-            a.company = "Cedevita";
-            a.name = "Lorem Ipsum";
-            a.price = 250;
-            a.weight = "200g (249 rsd / 1kg";
-            a.img = R.drawable.home;
+            a.company = "Delhaize - fruit market";
+            a.name = names[i];
+            a.weight = "100g (" + price[i] + " rsd / 1kg";
+            a.price = price[i] / 10;
+            a.img = imgs[i];
             data[i] = a;
         }
     }
@@ -48,8 +56,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolde
         Article a = data[position];
         holder.label.setText(a.name);
         holder.company.setText(a.company);
-        holder.gram.setText(a.weight + "g");
-        holder.cost.setText(a.count + " x " + a.price);
+        holder.gram.setText(a.weight);
+        holder.cost.setText(a.count + " x " + String.format("%.2f", a.price));
         holder.icon.setImageResource(a.img);
     }
 

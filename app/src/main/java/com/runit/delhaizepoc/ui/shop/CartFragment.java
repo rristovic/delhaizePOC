@@ -86,7 +86,8 @@ public class CartFragment extends Fragment {
                                 shoppingListResult.articles) {
                             total += a.count * a.price;
                         }
-                        tvCartTotal.setText(total + " rsd");
+
+                        tvCartTotal.setText(String.format("%.2f", total) + " rsd");
 
                     }
 

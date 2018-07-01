@@ -9,6 +9,7 @@
     <color name="text_white_secondary">#d2ffffff</color>
     <color name="text_black_dissabled">#6a000000</color>
     <color name="bg_white">#ffffff</color>
+    <color name="bg_white_darker">#f9f9f9</color>
     <color name="red_divider">@color/colorAccent</color>
     <color name="divider">#4d3c3f41</color>
     <color name="dark_gray_bg">#3c3f41</color>

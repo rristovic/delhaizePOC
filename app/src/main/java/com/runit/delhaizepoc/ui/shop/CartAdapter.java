@@ -40,8 +40,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CatViewHolder>
         Article a = data.get(position);
         holder.label.setText(a.name);
         holder.company.setText(a.company);
-        holder.gram.setText(a.weight + "g");
-        holder.cost.setText(a.count + " x " + a.price);
+        holder.gram.setText(a.weight);
+        holder.cost.setText(a.count + " x " + String.format("%.2f", a.price));
+        holder.icon.setImageResource(a.img);
     }
 
     public void setData(List<Article> data) {

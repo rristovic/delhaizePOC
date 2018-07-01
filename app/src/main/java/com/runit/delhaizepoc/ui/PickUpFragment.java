@@ -56,7 +56,7 @@ public class PickUpFragment extends Fragment {
                 return false;
             }
         });
-        webView.loadUrl("http://192.168.43.199:18080/ords/f?p=101:5");
+        webView.loadUrl("http://192.168.43.199:18080/ords/f?p=101:2");
         webView.setBackgroundColor(Color.TRANSPARENT);
         webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 
