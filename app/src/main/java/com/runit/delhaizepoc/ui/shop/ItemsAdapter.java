@@ -65,7 +65,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CatViewHolde
         public TextView cost;
         public TextView gram;
         public ImageView icon;
-        public ImageView plus, minus;
+        public View plus, minus;
 
         public CatViewHolder(View itemView) {
             super(itemView);

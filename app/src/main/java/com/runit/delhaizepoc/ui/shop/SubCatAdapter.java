@@ -15,7 +15,8 @@ import com.runit.delhaizepoc.ui.ItemClickListener;
 
 public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.CatViewHolder> {
 
-    private static final String[] data = new String[]{"Milk", "Egs","Milk", "Egs","Milk", "Egs","Milk", "Egs","Milk", "Egs"};
+    private static final String[] data = new String[]{"Fresh Vegetables", "Organic Fruit & Vegetables",
+    "Ready to Eat", "Fresh Fruit"};
     private final ItemClickListener<String> listener;
 
     public SubCatAdapter(ItemClickListener<String> listener) {

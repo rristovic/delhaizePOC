@@ -1,6 +1,7 @@
 package com.runit.delhaizepoc.ui.shop;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -29,6 +30,8 @@ public class CartFragment extends Fragment {
     private ShopScreenViewModel viewModel;
     private CartAdapter adapter;
     private TextView tvCartTotal, tvNoItems;
+    private View shared;
+    private View sharedBtn;
 
     public CartFragment() {
     }
@@ -39,6 +42,17 @@ public class CartFragment extends Fragment {
         View root = inflater.inflate(R.layout.cart_frag, container, false);
         tvCartTotal = root.findViewById(R.id.tv_cart_total);
         tvNoItems = root.findViewById(R.id.no_items);
+        shared = root.findViewById(R.id.shared);
+        sharedBtn = root.findViewById(R.id.btn_share);
+        sharedBtn.setOnClickListener(view -> {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT, "Maxi Shopping List");
+            String sAux = "\nJoin my shopping list, add your items here!\n\n";
+            sAux = sAux + "https://play.google.com/store/apps/details?id=com.runit.dehlaizepoc \n\n";
+            i.putExtra(Intent.EXTRA_TEXT, sAux);
+            startActivity(Intent.createChooser(i, "Share list by:"));
+        });
         viewModel = ViewModelProviders.of(getActivity()).get(ShopScreenViewModel.class);
         list = root.findViewById(R.id.list);
         adapter = new CartAdapter(item -> {
@@ -61,8 +75,10 @@ public class CartFragment extends Fragment {
 
                         if (shoppingListResult.articles.size() == 0) {
                             tvNoItems.setVisibility(View.VISIBLE);
+                            shared.setVisibility(View.GONE);
                         } else {
                             tvNoItems.setVisibility(View.GONE);
+                            shared.setVisibility(View.VISIBLE);
                         }
 
                         float total = 0;

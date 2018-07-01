@@ -61,6 +61,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_label" />
 
         <FrameLayout
+            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
@@ -77,30 +78,36 @@
             android:text="1 x 250din"
             android:textColor="@color/text_black_primary"
             android:textSize="22dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_minus"
             app:layout_constraintEnd_toStartOf="@id/iv_plus"
             app:layout_constraintStart_toEndOf="@id/iv_minus"
             app:layout_constraintTop_toBottomOf="@id/iv_icon" />
 
-        <ImageView
+        <TextView
             android:id="@+id/iv_minus"
-            android:layout_width="50dp"
+            android:layout_width="70dp"
             android:layout_height="0dp"
-            android:layout_marginLeft="8dp"
             android:background="@color/red_divider"
-            app:layout_constraintBottom_toBottomOf="@id/tv_cost"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/text_white_primary"
+            android:textSize="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_cost" />
+            app:layout_constraintTop_toBottomOf="@id/divider" />
 
-        <ImageView
+        <TextView
             android:id="@+id/iv_plus"
-            android:layout_width="50dp"
+            android:layout_width="70dp"
             android:layout_height="0dp"
             android:background="@android:color/holo_green_dark"
-            app:layout_constraintBottom_toBottomOf="@id/tv_cost"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="@color/text_white_primary"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_cost"
-            app:layout_constraintTop_toTopOf="@id/tv_cost" />
+            app:layout_constraintTop_toBottomOf="@id/divider" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>
